@@ -1,0 +1,15 @@
+[tool.pytest.ini_options]
+pythonpath = ["src/trippilot"]
+testpaths = ["tests"]
+markers = ["ollama: needs a running Ollama server (excluded in CI)"]
+
+[tool.ruff]
+target-version = "py311"
+line-length = 130
+src = ["src/trippilot"]
+
+[tool.ruff.lint]
+select = ["E", "F", "I"]
+
+[tool.ruff.lint.per-file-ignores]
+"__init__.py" = ["F401"]

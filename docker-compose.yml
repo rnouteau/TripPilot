@@ -1,0 +1,35 @@
+# By default the API talks to the Ollama already running on the host machine
+# (models already pulled, no multi-GB download).
+#
+# Fully containerized alternative (official ollama/ollama image):
+#   OLLAMA_HOST=http://ollama:11434 docker compose --profile ollama up
+#   docker compose exec ollama ollama pull qwen2.5:7b
+
+services:
+  api:
+    build: .
+    image: trippilot-api
+    ports:
+      - "8000:8000"
+    env_file:
+      - path: .env
+        required: false
+    environment:
+      OLLAMA_HOST: ${OLLAMA_HOST:-http://host.docker.internal:11434}
+    extra_hosts:
+      # Docker Desktop resolves host.docker.internal natively; this makes it work on Linux too
+      - "host.docker.internal:host-gateway"
+    volumes:
+      - llm_cache:/app/src/trippilot/.llm_cache
+    restart: unless-stopped
+
+  ollama:
+    image: ollama/ollama:latest
+    profiles: ["ollama"]
+    volumes:
+      - ollama_models:/root/.ollama
+    restart: unless-stopped
+
+volumes:
+  llm_cache:
+  ollama_models:

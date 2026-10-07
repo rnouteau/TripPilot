@@ -1,0 +1,1042 @@
+{
+  "timestamp": "2026-10-07T01:32:35",
+  "model": "qwen2.5:7b",
+  "no_itinerary": true,
+  "summary": {
+    "total": 14,
+    "passed": 9,
+    "crashes": 0,
+    "routing_ok": 13,
+    "total_duration_s": 1408.69,
+    "field_mismatches": {
+      "number_of_days": [
+        "month_lisbonne",
+        "budget_couple_prague",
+        "desires_nice"
+      ],
+      "route": [
+        "duration_only_barcelone"
+      ],
+      "missing_fields": [
+        "duration_only_barcelone"
+      ],
+      "budget_source": [
+        "budget_amsterdam"
+      ]
+    }
+  },
+  "results": [
+    {
+      "id": "precise_rome",
+      "query": "Rome du 10 au 17 juin 2027",
+      "tags": [
+        "dates_precises",
+        "ville_seule",
+        "sans_budget",
+        "sans_envies"
+      ],
+      "path": [
+        "extract_preferences",
+        "validate",
+        "weather",
+        "places",
+        "budget",
+        "itinerary"
+      ],
+      "route": "itinerary",
+      "missing_fields": [],
+      "duration_s": 248.9,
+      "error": null,
+      "weather_error": null,
+      "observed": {
+        "route": "itinerary",
+        "city": "Rome",
+        "country": "Italie",
+        "start_time": "2027-06-10",
+        "end_time": "2027-06-17",
+        "number_of_days": 8,
+        "number_of_travelers": 1,
+        "month": "juin",
+        "missing_fields": [],
+        "budget": "~880€ (estimation : hébergement/repas + 16 activités)",
+        "budget_source": "estimated",
+        "desires": null,
+        "has_desires": false
+      },
+      "comparison": {
+        "route": {
+          "expected": "itinerary",
+          "obtained": "itinerary",
+          "ok": true
+        },
+        "city": {
+          "expected": [
+            "Rome"
+          ],
+          "obtained": "Rome",
+          "ok": true
+        },
+        "country": {
+          "expected": [
+            "Italie",
+            "Italy"
+          ],
+          "obtained": "Italie",
+          "ok": true
+        },
+        "start_time": {
+          "expected": "2027-06-10",
+          "obtained": "2027-06-10",
+          "ok": true
+        },
+        "end_time": {
+          "expected": "2027-06-17",
+          "obtained": "2027-06-17",
+          "ok": true
+        },
+        "number_of_days": {
+          "expected": 8,
+          "obtained": 8,
+          "ok": true
+        },
+        "budget_source": {
+          "expected": "estimated",
+          "obtained": "estimated",
+          "ok": true
+        },
+        "has_desires": {
+          "expected": false,
+          "obtained": false,
+          "ok": true
+        }
+      },
+      "passed": true,
+      "final_response": "[itinerary skipped: --no-itinerary]"
+    },
+    {
+      "id": "month_lisbonne",
+      "query": "Lisbonne en mai pendant 5 jours",
+      "tags": [
+        "mois_seul",
+        "ville_seule",
+        "sans_budget",
+        "sans_envies"
+      ],
+      "path": [
+        "extract_preferences",
+        "validate",
+        "weather",
+        "places",
+        "budget",
+        "itinerary"
+      ],
+      "route": "itinerary",
+      "missing_fields": [],
+      "duration_s": 3.19,
+      "error": null,
+      "weather_error": null,
+      "observed": {
+        "route": "itinerary",
+        "city": "Lisbonne",
+        "country": "Portugal",
+        "start_time": "2026-05-14",
+        "end_time": "2026-05-19",
+        "number_of_days": 6,
+        "number_of_travelers": 1,
+        "month": "mai",
+        "missing_fields": [],
+        "budget": "~660€ (estimation : hébergement/repas + 12 activités)",
+        "budget_source": "estimated",
+        "desires": null,
+        "has_desires": false
+      },
+      "comparison": {
+        "route": {
+          "expected": "itinerary",
+          "obtained": "itinerary",
+          "ok": true
+        },
+        "city": {
+          "expected": [
+            "Lisbonne",
+            "Lisbon",
+            "Lisboa"
+          ],
+          "obtained": "Lisbonne",
+          "ok": true
+        },
+        "country": {
+          "expected": [
+            "Portugal"
+          ],
+          "obtained": "Portugal",
+          "ok": true
+        },
+        "month": {
+          "expected": "mai",
+          "obtained": "mai",
+          "ok": true
+        },
+        "number_of_days": {
+          "expected": 5,
+          "obtained": 6,
+          "ok": false
+        },
+        "budget_source": {
+          "expected": "estimated",
+          "obtained": "estimated",
+          "ok": true
+        }
+      },
+      "passed": false,
+      "final_response": "[itinerary skipped: --no-itinerary]"
+    },
+    {
+      "id": "duration_only_barcelone",
+      "query": "Une semaine à Barcelone",
+      "tags": [
+        "duree_seule",
+        "ville_seule"
+      ],
+      "path": [
+        "extract_preferences",
+        "validate",
+        "weather",
+        "places",
+        "budget",
+        "itinerary"
+      ],
+      "route": "itinerary",
+      "missing_fields": [],
+      "duration_s": 58.87,
+      "error": null,
+      "weather_error": null,
+      "observed": {
+        "route": "itinerary",
+        "city": "Barcelone",
+        "country": "Espagne",
+        "start_time": "2026-10-16",
+        "end_time": "2026-10-23",
+        "number_of_days": 8,
+        "number_of_travelers": 1,
+        "month": "octobre",
+        "missing_fields": [],
+        "budget": "~880€ (estimation : hébergement/repas + 16 activités)",
+        "budget_source": "estimated",
+        "desires": null,
+        "has_desires": false
+      },
+      "comparison": {
+        "route": {
+          "expected": "clarification",
+          "obtained": "itinerary",
+          "ok": false
+        },
+        "city": {
+          "expected": [
+            "Barcelone",
+            "Barcelona"
+          ],
+          "obtained": "Barcelone",
+          "ok": true
+        },
+        "missing_fields": {
+          "expected": [
+            "les dates ou la durée du séjour"
+          ],
+          "obtained": [],
+          "ok": false
+        }
+      },
+      "passed": false,
+      "final_response": "[itinerary skipped: --no-itinerary]"
+    },
+    {
+      "id": "city_only_tokyo",
+      "query": "je veux aller à Tokyo",
+      "tags": [
+        "ville_seule",
+        "sans_dates"
+      ],
+      "path": [
+        "extract_preferences",
+        "validate",
+        "clarification"
+      ],
+      "route": "clarification",
+      "missing_fields": [
+        "les dates ou la durée du séjour"
+      ],
+      "duration_s": 0.01,
+      "error": null,
+      "weather_error": null,
+      "observed": {
+        "route": "clarification",
+        "city": "Tokyo",
+        "country": "Japan",
+        "start_time": "unknown",
+        "end_time": "unknown",
+        "number_of_days": 0,
+        "number_of_travelers": 1,
+        "month": "unknown",
+        "missing_fields": [
+          "les dates ou la durée du séjour"
+        ],
+        "budget": "unknown",
+        "budget_source": null,
+        "desires": null,
+        "has_desires": false
+      },
+      "comparison": {
+        "route": {
+          "expected": "clarification",
+          "obtained": "clarification",
+          "ok": true
+        },
+        "city": {
+          "expected": [
+            "Tokyo"
+          ],
+          "obtained": "Tokyo",
+          "ok": true
+        },
+        "missing_fields": {
+          "expected": [
+            "les dates ou la durée du séjour"
+          ],
+          "obtained": [
+            "les dates ou la durée du séjour"
+          ],
+          "ok": true
+        }
+      },
+      "passed": true,
+      "final_response": "Il me manque des informations pour préparer ton voyage : les dates ou la durée du séjour. Peux-tu préciser ?"
+    },
+    {
+      "id": "country_only_portugal",
+      "query": "Je veux partir au Portugal en septembre pendant une semaine",
+      "tags": [
+        "pays_seul",
+        "mois_seul"
+      ],
+      "path": [
+        "extract_preferences",
+        "validate",
+        "clarification"
+      ],
+      "route": "clarification",
+      "missing_fields": [
+        "la ville de destination"
+      ],
+      "duration_s": 57.09,
+      "error": null,
+      "weather_error": null,
+      "observed": {
+        "route": "clarification",
+        "city": "unknown",
+        "country": "Portugal",
+        "start_time": "2026-09-10",
+        "end_time": "2026-09-17",
+        "number_of_days": 8,
+        "number_of_travelers": 1,
+        "month": "septembre",
+        "missing_fields": [
+          "la ville de destination"
+        ],
+        "budget": "unknown",
+        "budget_source": null,
+        "desires": null,
+        "has_desires": false
+      },
+      "comparison": {
+        "route": {
+          "expected": "clarification",
+          "obtained": "clarification",
+          "ok": true
+        },
+        "city": {
+          "expected": "unknown",
+          "obtained": "unknown",
+          "ok": true
+        },
+        "country": {
+          "expected": [
+            "Portugal"
+          ],
+          "obtained": "Portugal",
+          "ok": true
+        },
+        "month": {
+          "expected": "septembre",
+          "obtained": "septembre",
+          "ok": true
+        },
+        "missing_fields": {
+          "expected": [
+            "la ville de destination"
+          ],
+          "obtained": [
+            "la ville de destination"
+          ],
+          "ok": true
+        }
+      },
+      "passed": true,
+      "final_response": "Il me manque des informations pour préparer ton voyage : la ville de destination. Peux-tu préciser ?"
+    },
+    {
+      "id": "city_country_porto",
+      "query": "Porto, Portugal du 3 au 7 septembre 2027",
+      "tags": [
+        "ville_pays",
+        "dates_precises"
+      ],
+      "path": [
+        "extract_preferences",
+        "validate",
+        "weather",
+        "places",
+        "budget",
+        "itinerary"
+      ],
+      "route": "itinerary",
+      "missing_fields": [],
+      "duration_s": 62.23,
+      "error": null,
+      "weather_error": null,
+      "observed": {
+        "route": "itinerary",
+        "city": "Porto",
+        "country": "Portugal",
+        "start_time": "2027-09-03",
+        "end_time": "2027-09-07",
+        "number_of_days": 5,
+        "number_of_travelers": 1,
+        "month": "septembre",
+        "missing_fields": [],
+        "budget": "~550€ (estimation : hébergement/repas + 10 activités)",
+        "budget_source": "estimated",
+        "desires": null,
+        "has_desires": false
+      },
+      "comparison": {
+        "route": {
+          "expected": "itinerary",
+          "obtained": "itinerary",
+          "ok": true
+        },
+        "city": {
+          "expected": [
+            "Porto"
+          ],
+          "obtained": "Porto",
+          "ok": true
+        },
+        "country": {
+          "expected": [
+            "Portugal"
+          ],
+          "obtained": "Portugal",
+          "ok": true
+        },
+        "start_time": {
+          "expected": "2027-09-03",
+          "obtained": "2027-09-03",
+          "ok": true
+        },
+        "end_time": {
+          "expected": "2027-09-07",
+          "obtained": "2027-09-07",
+          "ok": true
+        },
+        "number_of_days": {
+          "expected": 5,
+          "obtained": 5,
+          "ok": true
+        }
+      },
+      "passed": true,
+      "final_response": "[itinerary skipped: --no-itinerary]"
+    },
+    {
+      "id": "budget_amsterdam",
+      "query": "Amsterdam du 12 au 15 avril 2027 avec un budget de 800 euros",
+      "tags": [
+        "dates_precises",
+        "budget_explicite"
+      ],
+      "path": [
+        "extract_preferences",
+        "validate",
+        "weather",
+        "places",
+        "budget",
+        "itinerary"
+      ],
+      "route": "itinerary",
+      "missing_fields": [],
+      "duration_s": 66.14,
+      "error": null,
+      "weather_error": null,
+      "observed": {
+        "route": "itinerary",
+        "city": "Amsterdam",
+        "country": "Pays-Bas",
+        "start_time": "2027-04-12",
+        "end_time": "2027-04-15",
+        "number_of_days": 4,
+        "number_of_travelers": 1,
+        "month": "avril",
+        "missing_fields": [],
+        "budget": "~440€ (estimation : hébergement/repas + 8 activités)",
+        "budget_source": "estimated",
+        "desires": null,
+        "has_desires": false
+      },
+      "comparison": {
+        "route": {
+          "expected": "itinerary",
+          "obtained": "itinerary",
+          "ok": true
+        },
+        "city": {
+          "expected": [
+            "Amsterdam"
+          ],
+          "obtained": "Amsterdam",
+          "ok": true
+        },
+        "country": {
+          "expected": [
+            "Pays-Bas",
+            "Netherlands"
+          ],
+          "obtained": "Pays-Bas",
+          "ok": true
+        },
+        "start_time": {
+          "expected": "2027-04-12",
+          "obtained": "2027-04-12",
+          "ok": true
+        },
+        "end_time": {
+          "expected": "2027-04-15",
+          "obtained": "2027-04-15",
+          "ok": true
+        },
+        "number_of_days": {
+          "expected": 4,
+          "obtained": 4,
+          "ok": true
+        },
+        "budget_source": {
+          "expected": "user",
+          "obtained": "estimated",
+          "ok": false
+        }
+      },
+      "passed": false,
+      "final_response": "[itinerary skipped: --no-itinerary]"
+    },
+    {
+      "id": "budget_couple_prague",
+      "query": "Prague en octobre 2027 pendant 4 jours à deux, budget 1200€",
+      "tags": [
+        "mois_seul",
+        "budget_explicite",
+        "plusieurs_voyageurs"
+      ],
+      "path": [
+        "extract_preferences",
+        "validate",
+        "weather",
+        "places",
+        "budget",
+        "itinerary"
+      ],
+      "route": "itinerary",
+      "missing_fields": [],
+      "duration_s": 72.64,
+      "error": null,
+      "weather_error": null,
+      "observed": {
+        "route": "itinerary",
+        "city": "Prague",
+        "country": "République tchèque",
+        "start_time": "2027-10-03",
+        "end_time": "2027-10-07",
+        "number_of_days": 5,
+        "number_of_travelers": 2,
+        "month": "octobre",
+        "missing_fields": [],
+        "budget": "http://localhost:8000/api/1200",
+        "budget_source": "user",
+        "desires": null,
+        "has_desires": false
+      },
+      "comparison": {
+        "route": {
+          "expected": "itinerary",
+          "obtained": "itinerary",
+          "ok": true
+        },
+        "city": {
+          "expected": [
+            "Prague",
+            "Praha"
+          ],
+          "obtained": "Prague",
+          "ok": true
+        },
+        "month": {
+          "expected": "octobre",
+          "obtained": "octobre",
+          "ok": true
+        },
+        "number_of_days": {
+          "expected": 4,
+          "obtained": 5,
+          "ok": false
+        },
+        "number_of_travelers": {
+          "expected": 2,
+          "obtained": 2,
+          "ok": true
+        },
+        "budget_source": {
+          "expected": "user",
+          "obtained": "user",
+          "ok": true
+        }
+      },
+      "passed": false,
+      "final_response": "[itinerary skipped: --no-itinerary]"
+    },
+    {
+      "id": "desires_florence",
+      "query": "Florence du 2 au 5 mai 2027, j'adore les musées et l'architecture",
+      "tags": [
+        "dates_precises",
+        "avec_envies"
+      ],
+      "path": [
+        "extract_preferences",
+        "validate",
+        "weather",
+        "places",
+        "budget",
+        "itinerary"
+      ],
+      "route": "itinerary",
+      "missing_fields": [],
+      "duration_s": 125.04,
+      "error": null,
+      "weather_error": null,
+      "observed": {
+        "route": "itinerary",
+        "city": "Florence",
+        "country": "Italie",
+        "start_time": "2027-05-02",
+        "end_time": "2027-05-05",
+        "number_of_days": 4,
+        "number_of_travelers": 1,
+        "month": "mai",
+        "missing_fields": [],
+        "budget": "~440€ (estimation : hébergement/repas + 8 activités)",
+        "budget_source": "estimated",
+        "desires": [
+          "musées",
+          "architecture"
+        ],
+        "has_desires": true
+      },
+      "comparison": {
+        "route": {
+          "expected": "itinerary",
+          "obtained": "itinerary",
+          "ok": true
+        },
+        "city": {
+          "expected": [
+            "Florence",
+            "Firenze"
+          ],
+          "obtained": "Florence",
+          "ok": true
+        },
+        "start_time": {
+          "expected": "2027-05-02",
+          "obtained": "2027-05-02",
+          "ok": true
+        },
+        "end_time": {
+          "expected": "2027-05-05",
+          "obtained": "2027-05-05",
+          "ok": true
+        },
+        "number_of_days": {
+          "expected": 4,
+          "obtained": 4,
+          "ok": true
+        },
+        "has_desires": {
+          "expected": true,
+          "obtained": true,
+          "ok": true
+        }
+      },
+      "passed": true,
+      "final_response": "[itinerary skipped: --no-itinerary]"
+    },
+    {
+      "id": "desires_nice",
+      "query": "Nice en juillet pendant 6 jours, je veux profiter des plages et de la gastronomie",
+      "tags": [
+        "mois_seul",
+        "avec_envies"
+      ],
+      "path": [
+        "extract_preferences",
+        "validate",
+        "weather",
+        "places",
+        "budget",
+        "itinerary"
+      ],
+      "route": "itinerary",
+      "missing_fields": [],
+      "duration_s": 305.2,
+      "error": null,
+      "weather_error": null,
+      "observed": {
+        "route": "itinerary",
+        "city": "Nice",
+        "country": "France",
+        "start_time": "2026-07-01",
+        "end_time": "2026-07-07",
+        "number_of_days": 7,
+        "number_of_travelers": 1,
+        "month": "juillet",
+        "missing_fields": [],
+        "budget": "~770€ (estimation : hébergement/repas + 14 activités)",
+        "budget_source": "estimated",
+        "desires": [
+          "plages",
+          "gastronomie"
+        ],
+        "has_desires": true
+      },
+      "comparison": {
+        "route": {
+          "expected": "itinerary",
+          "obtained": "itinerary",
+          "ok": true
+        },
+        "city": {
+          "expected": [
+            "Nice"
+          ],
+          "obtained": "Nice",
+          "ok": true
+        },
+        "country": {
+          "expected": [
+            "France"
+          ],
+          "obtained": "France",
+          "ok": true
+        },
+        "month": {
+          "expected": "juillet",
+          "obtained": "juillet",
+          "ok": true
+        },
+        "number_of_days": {
+          "expected": 6,
+          "obtained": 7,
+          "ok": false
+        },
+        "has_desires": {
+          "expected": true,
+          "obtained": true,
+          "ok": true
+        }
+      },
+      "passed": false,
+      "final_response": "[itinerary skipped: --no-itinerary]"
+    },
+    {
+      "id": "family_berlin",
+      "query": "Berlin du 20 au 24 août 2027 en famille de quatre",
+      "tags": [
+        "dates_precises",
+        "plusieurs_voyageurs",
+        "sans_budget"
+      ],
+      "path": [
+        "extract_preferences",
+        "validate",
+        "weather",
+        "places",
+        "budget",
+        "itinerary"
+      ],
+      "route": "itinerary",
+      "missing_fields": [],
+      "duration_s": 247.14,
+      "error": null,
+      "weather_error": null,
+      "observed": {
+        "route": "itinerary",
+        "city": "Berlin",
+        "country": "Allemagne",
+        "start_time": "2027-08-20",
+        "end_time": "2027-08-24",
+        "number_of_days": 5,
+        "number_of_travelers": 4,
+        "month": "août",
+        "missing_fields": [],
+        "budget": "~2200€ (estimation : hébergement/repas + 10 activités)",
+        "budget_source": "estimated",
+        "desires": null,
+        "has_desires": false
+      },
+      "comparison": {
+        "route": {
+          "expected": "itinerary",
+          "obtained": "itinerary",
+          "ok": true
+        },
+        "city": {
+          "expected": [
+            "Berlin"
+          ],
+          "obtained": "Berlin",
+          "ok": true
+        },
+        "country": {
+          "expected": [
+            "Allemagne",
+            "Germany"
+          ],
+          "obtained": "Allemagne",
+          "ok": true
+        },
+        "start_time": {
+          "expected": "2027-08-20",
+          "obtained": "2027-08-20",
+          "ok": true
+        },
+        "end_time": {
+          "expected": "2027-08-24",
+          "obtained": "2027-08-24",
+          "ok": true
+        },
+        "number_of_days": {
+          "expected": 5,
+          "obtained": 5,
+          "ok": true
+        },
+        "number_of_travelers": {
+          "expected": 4,
+          "obtained": 4,
+          "ok": true
+        },
+        "budget_source": {
+          "expected": "estimated",
+          "obtained": "estimated",
+          "ok": true
+        }
+      },
+      "passed": true,
+      "final_response": "[itinerary skipped: --no-itinerary]"
+    },
+    {
+      "id": "invalid_city",
+      "query": "voyage à Xyzabcville du 1er au 5 juin 2027",
+      "tags": [
+        "invalide",
+        "ville_inexistante"
+      ],
+      "path": [
+        "extract_preferences",
+        "validate",
+        "weather",
+        "weather_error"
+      ],
+      "route": "weather_error",
+      "missing_fields": [],
+      "duration_s": 60.81,
+      "error": null,
+      "weather_error": "No location data found for 'Xyzabcville'.",
+      "observed": {
+        "route": "weather_error",
+        "city": "Xyzabcville",
+        "country": "unknown",
+        "start_time": "2027-06-01",
+        "end_time": "2027-06-05",
+        "number_of_days": 5,
+        "number_of_travelers": 1,
+        "month": "juin",
+        "missing_fields": [],
+        "budget": "unknown",
+        "budget_source": null,
+        "desires": null,
+        "has_desires": false
+      },
+      "comparison": {
+        "route": {
+          "expected": "weather_error",
+          "obtained": "weather_error",
+          "ok": true
+        },
+        "city": {
+          "expected": [
+            "Xyzabcville"
+          ],
+          "obtained": "Xyzabcville",
+          "ok": true
+        },
+        "start_time": {
+          "expected": "2027-06-01",
+          "obtained": "2027-06-01",
+          "ok": true
+        },
+        "end_time": {
+          "expected": "2027-06-05",
+          "obtained": "2027-06-05",
+          "ok": true
+        }
+      },
+      "passed": true,
+      "final_response": "Je ne trouve pas la destination « Xyzabcville ». Vérifie l'orthographe ou précise le pays (ex : « Porto, Portugal »)."
+    },
+    {
+      "id": "no_destination",
+      "query": "je veux partir en vacances du 1er au 10 juillet 2027",
+      "tags": [
+        "invalide",
+        "sans_destination",
+        "dates_precises"
+      ],
+      "path": [
+        "extract_preferences",
+        "validate",
+        "clarification"
+      ],
+      "route": "clarification",
+      "missing_fields": [
+        "la ville de destination"
+      ],
+      "duration_s": 59.92,
+      "error": null,
+      "weather_error": null,
+      "observed": {
+        "route": "clarification",
+        "city": "unknown",
+        "country": "unknown",
+        "start_time": "2027-07-01",
+        "end_time": "2027-07-10",
+        "number_of_days": 10,
+        "number_of_travelers": 1,
+        "month": "juillet",
+        "missing_fields": [
+          "la ville de destination"
+        ],
+        "budget": "unknown",
+        "budget_source": null,
+        "desires": null,
+        "has_desires": false
+      },
+      "comparison": {
+        "route": {
+          "expected": "clarification",
+          "obtained": "clarification",
+          "ok": true
+        },
+        "city": {
+          "expected": "unknown",
+          "obtained": "unknown",
+          "ok": true
+        },
+        "missing_fields": {
+          "expected": [
+            "la ville de destination"
+          ],
+          "obtained": [
+            "la ville de destination"
+          ],
+          "ok": true
+        }
+      },
+      "passed": true,
+      "final_response": "Il me manque des informations pour préparer ton voyage : la ville de destination. Peux-tu préciser ?"
+    },
+    {
+      "id": "empty_request",
+      "query": "Bonjour !",
+      "tags": [
+        "invalide",
+        "sans_destination",
+        "sans_dates"
+      ],
+      "path": [
+        "extract_preferences",
+        "validate",
+        "clarification"
+      ],
+      "route": "clarification",
+      "missing_fields": [
+        "la ville de destination",
+        "les dates ou la durée du séjour"
+      ],
+      "duration_s": 41.51,
+      "error": null,
+      "weather_error": null,
+      "observed": {
+        "route": "clarification",
+        "city": "unknown",
+        "country": "unknown",
+        "start_time": "unknown",
+        "end_time": "unknown",
+        "number_of_days": 0,
+        "number_of_travelers": 1,
+        "month": "unknown",
+        "missing_fields": [
+          "la ville de destination",
+          "les dates ou la durée du séjour"
+        ],
+        "budget": "unknown",
+        "budget_source": null,
+        "desires": null,
+        "has_desires": false
+      },
+      "comparison": {
+        "route": {
+          "expected": "clarification",
+          "obtained": "clarification",
+          "ok": true
+        },
+        "city": {
+          "expected": "unknown",
+          "obtained": "unknown",
+          "ok": true
+        },
+        "missing_fields": {
+          "expected": [
+            "la ville de destination",
+            "les dates ou la durée du séjour"
+          ],
+          "obtained": [
+            "la ville de destination",
+            "les dates ou la durée du séjour"
+          ],
+          "ok": true
+        }
+      },
+      "passed": true,
+      "final_response": "Il me manque des informations pour préparer ton voyage : la ville de destination, les dates ou la durée du séjour. Peux-tu préciser ?"
+    }
+  ]
+}

@@ -1,0 +1,174 @@
+[
+  {
+    "id": "precise_rome",
+    "query": "Rome du 10 au 17 juin 2027",
+    "tags": ["dates_precises", "ville_seule", "sans_budget", "sans_envies"],
+    "expected": {
+      "route": "itinerary",
+      "city": ["Rome"],
+      "country": ["Italie", "Italy"],
+      "start_time": "2027-06-10",
+      "end_time": "2027-06-17",
+      "number_of_days": 8,
+      "budget_source": "estimated",
+      "has_desires": false
+    }
+  },
+  {
+    "id": "month_lisbonne",
+    "query": "Lisbonne en mai pendant 5 jours",
+    "tags": ["mois_seul", "ville_seule", "sans_budget", "sans_envies"],
+    "expected": {
+      "route": "itinerary",
+      "city": ["Lisbonne", "Lisbon", "Lisboa"],
+      "country": ["Portugal"],
+      "month": "mai",
+      "number_of_days": 5,
+      "budget_source": "estimated"
+    }
+  },
+  {
+    "id": "duration_only_barcelone",
+    "query": "Une semaine à Barcelone",
+    "tags": ["duree_seule", "ville_seule"],
+    "expected": {
+      "route": "clarification",
+      "city": ["Barcelone", "Barcelona"],
+      "missing_fields": ["les dates ou la durée du séjour"]
+    }
+  },
+  {
+    "id": "city_only_tokyo",
+    "query": "je veux aller à Tokyo",
+    "tags": ["ville_seule", "sans_dates"],
+    "expected": {
+      "route": "clarification",
+      "city": ["Tokyo"],
+      "missing_fields": ["les dates ou la durée du séjour"]
+    }
+  },
+  {
+    "id": "country_only_portugal",
+    "query": "Je veux partir au Portugal en septembre pendant une semaine",
+    "tags": ["pays_seul", "mois_seul"],
+    "expected": {
+      "route": "clarification",
+      "city": "unknown",
+      "country": ["Portugal"],
+      "month": "septembre",
+      "missing_fields": ["la ville de destination"]
+    }
+  },
+  {
+    "id": "city_country_porto",
+    "query": "Porto, Portugal du 3 au 7 septembre 2027",
+    "tags": ["ville_pays", "dates_precises"],
+    "expected": {
+      "route": "itinerary",
+      "city": ["Porto"],
+      "country": ["Portugal"],
+      "start_time": "2027-09-03",
+      "end_time": "2027-09-07",
+      "number_of_days": 5
+    }
+  },
+  {
+    "id": "budget_amsterdam",
+    "query": "Amsterdam du 12 au 15 avril 2027 avec un budget de 800 euros",
+    "tags": ["dates_precises", "budget_explicite"],
+    "expected": {
+      "route": "itinerary",
+      "city": ["Amsterdam"],
+      "country": ["Pays-Bas", "Netherlands"],
+      "start_time": "2027-04-12",
+      "end_time": "2027-04-15",
+      "number_of_days": 4,
+      "budget_source": "user"
+    }
+  },
+  {
+    "id": "budget_couple_prague",
+    "query": "Prague en octobre 2027 pendant 4 jours à deux, budget 1200€",
+    "tags": ["mois_seul", "budget_explicite", "plusieurs_voyageurs"],
+    "expected": {
+      "route": "itinerary",
+      "city": ["Prague", "Praha"],
+      "month": "octobre",
+      "number_of_days": 4,
+      "number_of_travelers": 2,
+      "budget_source": "user"
+    }
+  },
+  {
+    "id": "desires_florence",
+    "query": "Florence du 2 au 5 mai 2027, j'adore les musées et l'architecture",
+    "tags": ["dates_precises", "avec_envies"],
+    "expected": {
+      "route": "itinerary",
+      "city": ["Florence", "Firenze"],
+      "start_time": "2027-05-02",
+      "end_time": "2027-05-05",
+      "number_of_days": 4,
+      "has_desires": true
+    }
+  },
+  {
+    "id": "desires_nice",
+    "query": "Nice en juillet pendant 6 jours, je veux profiter des plages et de la gastronomie",
+    "tags": ["mois_seul", "avec_envies"],
+    "expected": {
+      "route": "itinerary",
+      "city": ["Nice"],
+      "country": ["France"],
+      "month": "juillet",
+      "number_of_days": 6,
+      "has_desires": true
+    }
+  },
+  {
+    "id": "family_berlin",
+    "query": "Berlin du 20 au 24 août 2027 en famille de quatre",
+    "tags": ["dates_precises", "plusieurs_voyageurs", "sans_budget"],
+    "expected": {
+      "route": "itinerary",
+      "city": ["Berlin"],
+      "country": ["Allemagne", "Germany"],
+      "start_time": "2027-08-20",
+      "end_time": "2027-08-24",
+      "number_of_days": 5,
+      "number_of_travelers": 4,
+      "budget_source": "estimated"
+    }
+  },
+  {
+    "id": "invalid_city",
+    "query": "voyage à Xyzabcville du 1er au 5 juin 2027",
+    "tags": ["invalide", "ville_inexistante"],
+    "expected": {
+      "route": "weather_error",
+      "city": ["Xyzabcville"],
+      "start_time": "2027-06-01",
+      "end_time": "2027-06-05"
+    }
+  },
+  {
+    "id": "no_destination",
+    "query": "je veux partir en vacances du 1er au 10 juillet 2027",
+    "tags": ["invalide", "sans_destination", "dates_precises"],
+    "expected": {
+      "route": "clarification",
+      "city": "unknown",
+      "missing_fields": ["la ville de destination"]
+    }
+  },
+  {
+    "id": "empty_request",
+    "query": "Bonjour !",
+    "tags": ["invalide", "sans_destination", "sans_dates"],
+    "expected": {
+      "route": "clarification",
+      "city": "unknown",
+      "missing_fields": ["la ville de destination", "les dates ou la durée du séjour"]
+    }
+  }
+]
