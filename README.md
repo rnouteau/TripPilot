@@ -12,17 +12,17 @@ L'agent est un graphe **LangGraph** dont les étapes d'interprétation et de ré
 
 ```mermaid
 flowchart TD
-    START([START]) --> extract[extract_preferences<br/><i>LLM : texte → JSON structuré</i>]
-    extract --> validate[validate<br/><i>ville + dates/mois présents ?</i>]
-    validate -- infos manquantes --> clarification[clarification<br/><i>demande de précision</i>]
-    validate -- OK --> weather[weather<br/><i>géocodage + climat historique</i>]
-    weather -- destination introuvable / API en erreur --> weather_error[weather_error<br/><i>message d'erreur clair</i>]
-    weather -- OK --> places[places<br/><i>LLM : envies → catégories<br/>+ OpenTripMap</i>]
-    places --> budget[budget<br/><i>estimation heuristique</i>]
-    budget --> itinerary[itinerary<br/><i>LLM : rédaction jour par jour</i>]
-    clarification --> END([END])
-    weather_error --> END
-    itinerary --> END
+    start_node(["START"]) --> extract_node["extract_preferences<br/><i>LLM : texte → JSON structuré</i>"]
+    extract_node --> validate_node["validate<br/><i>ville + dates ou mois présents ?</i>"]
+    validate_node -->|"infos manquantes"| clarification_node["clarification<br/><i>demande de précision</i>"]
+    validate_node -->|"OK"| weather_node["weather<br/><i>géocodage + climat historique</i>"]
+    weather_node -->|"destination introuvable ou API en erreur"| weather_error_node["weather_error<br/><i>message d'erreur clair</i>"]
+    weather_node -->|"OK"| places_node["places<br/><i>LLM : envies → catégories<br/>+ OpenTripMap</i>"]
+    places_node --> budget_node["budget<br/><i>estimation heuristique</i>"]
+    budget_node --> itinerary_node["itinerary<br/><i>LLM : rédaction jour par jour</i>"]
+    clarification_node --> end_node(["END"])
+    weather_error_node --> end_node
+    itinerary_node --> end_node
 ```
 
 Chaque nœud lit et enrichit un état partagé (`agent/state.py`). Les trois nœuds terminaux écrivent `final_response` et `source_node`, ce qui permet à l'API de savoir si la réponse est un itinéraire, une demande de clarification ou une erreur.
@@ -40,12 +40,12 @@ Chaque nœud lit et enrichit un état partagé (`agent/state.py`). Les trois nœ
 
 ```mermaid
 flowchart LR
-    client[Client HTTP] -->|POST /plan-trip| api[FastAPI<br/>conteneur Docker]
-    api --> graph[Graphe LangGraph]
-    graph --> ollama[(Ollama<br/>qwen2.5:7b)]
-    graph --> meteo[Open-Meteo<br/>geocoding + archive]
-    graph --> otm[OpenTripMap]
-    graph <--> cache[(.llm_cache<br/>cache disque des réponses LLM)]
+    client["Client HTTP"] -->|"POST /plan-trip"| api["FastAPI<br/>conteneur Docker"]
+    api --> agent["Graphe LangGraph"]
+    agent --> ollama[("Ollama<br/>qwen2.5:7b")]
+    agent --> meteo["Open-Meteo<br/>geocoding + archive"]
+    agent --> otm["OpenTripMap"]
+    agent <--> llmcache[(".llm_cache<br/>cache disque des réponses LLM")]
 ```
 
 ### Structure du projet
